@@ -8,6 +8,10 @@ jobs:
   coverage:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: backend  # Specify the backend folder as the working directory
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -19,7 +23,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build and run tests with coverage
-        run: mvn clean verify
+        run: mvn clean verify  # This will now run inside the backend/ directory
 
       - name: Check JaCoCo Coverage
         run: |

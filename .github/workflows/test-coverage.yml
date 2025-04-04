@@ -22,23 +22,13 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
+      - name: Install xmllint
+        run: sudo apt-get install -y libxml2-utils
+
       - name: Build and run tests with coverage
         run: mvn clean verify  # This will now run inside the backend/ directory
 
       - name: Check JaCoCo Coverage
         run: |
           echo "Checking JaCoCo coverage..."
-          COVERED=$(grep -oPm1 "(?<=<counter type=\"INSTRUCTION\">.*<covered>)[0-9]+" target/site/jacoco/jacoco.xml)
-          MISSED=$(grep -oPm1 "(?<=<counter type=\"INSTRUCTION\">.*<missed>)[0-9]+" target/site/jacoco/jacoco.xml)
-          TOTAL=$((COVERED + MISSED))
-          RATIO=$(awk "BEGIN {print $COVERED/$TOTAL}")
-
-          echo "Coverage ratio: $RATIO"
-          MIN=0.80
-
-          if (( $(echo "$RATIO < $MIN" | bc -l) )); then
-            echo "❌ Coverage too low. Minimum required: $MIN"
-            exit 1
-          else
-            echo "✅ Coverage is sufficient"
-          fi
+          COVER

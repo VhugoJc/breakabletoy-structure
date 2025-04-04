@@ -1,0 +1,7 @@
+com/backend/app/Repository/TaskRepositoryImpl.class
+com/backend/app/Service/TaskService.class
+com/backend/app/AppApplication.class
+com/backend/app/Service/TaskServiceImpl.class
+com/backend/app/Controller/TaskController.class
+com/backend/app/Model/Task.class
+com/backend/app/Repository/TaskRepository.class

@@ -12,6 +12,7 @@ This repository serves as an initial structure for projects that combine a **Rea
   - Robust Java framework for building RESTful APIs.
   - Includes basic setup for controllers, services, and repositories.
 
+
 - **Docker**:
   - Dockerfiles for both frontend and backend.
   - Docker Compose for running the entire stack locally.

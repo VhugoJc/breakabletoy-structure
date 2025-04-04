@@ -4,6 +4,7 @@ This repository serves as an initial structure for projects that combine a **Rea
 
 ## Features
 
+
 - **Frontend**: React.js
   - Modern JavaScript framework for building user interfaces.
   - Pre-configured with essential dependencies and scripts.

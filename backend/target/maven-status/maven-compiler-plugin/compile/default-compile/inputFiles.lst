@@ -1,0 +1,7 @@
+/Users/victorjimenez/Documents/Encora/breakabletoy/backend/src/main/java/com/backend/app/AppApplication.java
+/Users/victorjimenez/Documents/Encora/breakabletoy/backend/src/main/java/com/backend/app/Controller/TaskController.java
+/Users/victorjimenez/Documents/Encora/breakabletoy/backend/src/main/java/com/backend/app/Model/Task.java
+/Users/victorjimenez/Documents/Encora/breakabletoy/backend/src/main/java/com/backend/app/Repository/TaskRepository.java
+/Users/victorjimenez/Documents/Encora/breakabletoy/backend/src/main/java/com/backend/app/Repository/TaskRepositoryImpl.java
+/Users/victorjimenez/Documents/Encora/breakabletoy/backend/src/main/java/com/backend/app/Service/TaskService.java
+/Users/victorjimenez/Documents/Encora/breakabletoy/backend/src/main/java/com/backend/app/Service/TaskServiceImpl.java

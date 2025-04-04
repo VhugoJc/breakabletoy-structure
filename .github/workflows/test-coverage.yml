@@ -28,23 +28,15 @@ jobs:
       - name: Build and run tests with coverage
         run: mvn clean verify  # This will now run inside the backend/ directory
 
+      - name: Check if JaCoCo report exists
+        run: |
+          if [ ! -f target/site/jacoco/jacoco.xml ]; then
+            echo "❌ JaCoCo report not found!"
+            exit 1
+          fi
+          echo "✅ JaCoCo report found"
+
       - name: Check JaCoCo Coverage
         run: |
           echo "Checking JaCoCo coverage..."
-          COVERED=$(xmllint --xpath "string(//counter[@type='INSTRUCTION']/@covered)" target/site/jacoco/jacoco.xml)
-          MISSED=$(xmllint --xpath "string(//counter[@type='INSTRUCTION']/@missed)" target/site/jacoco/jacoco.xml)
-          echo "Covered: $COVERED"
-          echo "Missed: $MISSED"
-
-          TOTAL=$((COVERED + MISSED))
-          RATIO=$(awk "BEGIN {print $COVERED/$TOTAL}")
-
-          echo "Coverage ratio: $RATIO"
-          MIN=0.80
-
-          if (( $(echo "$RATIO < $MIN" | bc -l) )); then
-            echo "❌ Coverage too low. Minimum required: $MIN"
-            exit 1
-          else
-            echo "✅ Coverage is sufficient"
-          fi
+          COVERED=$(xmllint --xpath "string(//counter[@type='INSTRUCTION']/

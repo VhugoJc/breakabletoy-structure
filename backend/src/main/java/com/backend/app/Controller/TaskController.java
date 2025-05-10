@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.beans.factory.annotation.Value;
 import java.util.List;
 
 
@@ -16,6 +16,8 @@ import java.util.List;
 @RequestMapping("/api/tasks")
 public class TaskController {
     private static final Logger logger = LoggerFactory.getLogger(TaskController.class);
+    @Value("${spring.datasource.url}")
+    private String datasourceUrl;
 
     private final TaskService taskService;
 
@@ -47,6 +49,7 @@ public class TaskController {
     // Get all tasks
     @GetMapping
     public ResponseEntity<List<Task>> getAllTasks() {
+        logger.info("Datasource URL: {}", datasourceUrl);
         logger.info("Fetching all tasks");
         List<Task> tasks = taskService.getAllTasks();
         return ResponseEntity.ok(tasks);

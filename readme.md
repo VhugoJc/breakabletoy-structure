@@ -73,6 +73,39 @@ npm test
 cd backend
 ./mvnw test
 ```
+
+## Run Containers
+
+1. **Create the `.env` File**:
+   - Copy the `.env.example` file to `.env`:
+     ```bash
+     cp backend/.env.example backend/.env
+     ```
+   - Update the `.env` file with your environment variables (e.g., database URL, username, password).
+
+2. **Run the Containers**:
+   - Using **Podman Compose**:
+     ```bash
+     podman-compose up --build
+     ```
+   - Using **Docker Compose**:
+     ```bash
+     docker-compose up --build
+     ```
+
+3. **Access the Application**:
+   - Frontend: [http://localhost:3000](http://localhost:3000)
+   - Backend: [http://localhost:8080](http://localhost:8080)
+
+4. **Stop the Containers**:
+   - Using **Podman Compose**:
+     ```bash
+     podman-compose down
+     ```
+   - Using **Docker Compose**:
+     ```bash
+     docker-compose down
+     ```
 ## Contributing
 Feel free to fork this repository and submit pull requests. Contributions are welcome!
 
